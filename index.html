@@ -1,12 +1,18 @@
 ---
-layout: reveal
-title: not used. Use _config.yml!
+layout: default
+title: Home
 ---
 
-{% for post in site.posts reversed %}
-<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
-<script type="text/template">
-{{ post.content }}
-</script>
-</section>
-{% endfor %}
+<div class="posts">
+  {% for post in site.slides %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    {% if post.date %}<span class="post-date">{{ post.date | date_to_string }}</span>{% endif %}
+  </div>
+  {% endfor %}
+</div>
