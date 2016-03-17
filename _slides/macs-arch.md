@@ -9,25 +9,15 @@ Speaker: Jim Cadden
 
 ---
 
-### Scalable Elastic Systems Architecture
-![](https://github.com/SESA/EbbRT/raw/master/doc/img/objective.png)
-#### EbbRT Application Model
-
-- App-specific OS, composed of reusable components 
-- modular, light-weight, event-driven
-
-
-==
-
-### Scalable Elastic Systems Architecture
-![](https://github.com/SESA/EbbRT/raw/master/doc/img/objective.png)
-
-- App-specific OS, composed of reusable components 
-- modular, light-weight, event-driven
-
-==
-
 ### EbbRT Application Model
+![](https://github.com/SESA/EbbRT/raw/master/doc/img/objective.png)
+
+- App-specific OS, composed of reusable components 
+- Modular, light-weight, event-driven
+
+==
+
+### Scalable Elastic Systems Architecture
 ![EbbRT](https://dl.dropboxusercontent.com/u/11161963/mactalk/mactalk.002.jpeg)
 
 - Linux 'front-end' application's computation to a back-end 
