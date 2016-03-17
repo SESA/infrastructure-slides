@@ -12,7 +12,7 @@ $(function(){
   el.html(mdstr);
 
   Reveal.initialize({
-    transition: 'none',
+    transition: 'slide',
     dependencies: [
       // Interpret Markdown in <section> elements
       { src: '{{ site.baseurl }}/public/js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
