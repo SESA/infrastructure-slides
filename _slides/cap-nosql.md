@@ -11,8 +11,9 @@ Speaker: Jim Cadden
 ### Today:
 
 - Overview key concepts of CAP
+- Differentiate 'conjecture' and the 'theorem' 
 - Highlight where CAP does/does-not apply
-- Discuss NoSQL design inspired by CAP 
+- Discuss underlying consistency trade-offs 
 
 ---
 
@@ -20,11 +21,13 @@ Speaker: Jim Cadden
 
 ==
 
+## Distributed applications
+
 Modern distributed applications and services, deployed in-or-across large datacenters or in "cloud" infrastructures.
 
 ==
 
-#### Fault-tolerant distributed applications 
+## Fault-tolerant distributed applications 
 
 Microsoft datacenters 46 failures per-day
 
@@ -71,7 +74,7 @@ Facebook RockDB reports 9 billion request-per-second
 
 ==
 
-## What is CAP?
+## What is CAP Conjecture?
 
 - Informally, "CAP" is an conjecture (Brewer 1999)
 
@@ -79,7 +82,7 @@ Facebook RockDB reports 9 billion request-per-second
 
 ==
 
-## What is CAP?
+## What is CAP Theorem?
 
 - Formally, "CAP" is a theorem (Gilbert,Fox 2002)
 
@@ -95,8 +98,9 @@ Facebook RockDB reports 9 billion request-per-second
 
 - Often-cited when describing/comparing/critiquing distributed systems
 - Tool for reasoning about trade-offs and limitations
-- Embodies *core* concepts of distributed systems / application 
-- Influential for many distributed database model 
+- Influential on distributed database architectures 
+- Embodies *core* concepts of distributed systems (consistency
+  and failures).
 
 ---
 
@@ -112,16 +116,20 @@ Facebook RockDB reports 9 billion request-per-second
 
 ==
 
-###During a network partition, do you...
+### During a network partition, a client 'write' request arrives
 
-- A. Continue processing client requests.
-- B. Wait until the partition is repaired.
+- A. Wait until the partition is repaired to continue
+- B. Immediately process client requests
 
 ==
 
-#### Informally, CAP states that these choices are mutually exclusive. 
+### In general, CAP Conjecture states that these choices are mutually exclusive. 
 
 ---
+
+# Pick 2 of 3
+
+==
 
 ## CAP rule of pick "2 of 3"
 
@@ -137,7 +145,29 @@ Facebook RockDB reports 9 billion request-per-second
 - **CP** system prioritizes consistency over availability
 - **CA** system sacrifices partition tolerance (N/A)
 
-####(Terms have taken a life of their own.)
+###(Terms have taken a life of their own.)
+
+---
+
+## Consistency vs availability Trade-off
+
+==
+
+When buying a plane ticket online the site communicates with a replicated database of available seats, risk that planes get overbooked (seat for 1 gets sold twice!) 
+
+### AP or CP? Solution?
+
+==
+
+Make a post to a social network, call your friend who says she cannot see the post on their page.
+
+### AP or CP? Solution?
+
+==
+
+Concurrent withdrawals to empty a bank account. Same money is given out twice. 
+
+### AP or CP? Solution?
 
 ---
 
@@ -154,10 +184,12 @@ Facebook RockDB reports 9 billion request-per-second
   - Linearizability.
 
 ==
+
 ## Linearizability & Serializability
 
 - Two types of "strong consistency"
 - Avoids: stale reads, lost writes, monotonicity/causality violations 
+
 ==
 
 ## Value of "CP" 
@@ -173,9 +205,9 @@ Facebook RockDB reports 9 billion request-per-second
 
 ## "A" in CAP
 
-- Availability, as defined by CAP Conjecture
+- As defined by CAP Conjecture:
   - Every requests results in a valid response with a high probability
-- Availability, as defined by CAP Theorem
+- As defined by CAP Theorem:
   - Every request received by a non-failing node eventually results in a valid response.
 
 ==
@@ -186,30 +218,24 @@ Facebook RockDB reports 9 billion request-per-second
 
 ---
 
-## Consistency vs availability Trade-off
-
-When buying a plane ticket online the site communicates with a database of available seats, however sometimes planes get overbooked (seat for 1 gets sold twice!) Problem? Solution?
-
-==
-
-Concurrent withdrawals to empty a bank account. Same money is given out twice. Solution?
-
----
-
 # "P" in CAP
 
 In both the CAP Theorem and CAP Conjecture, partition tolerance requires a system to assume partitions exists and continue to operate correctly in the presence of a partition.
 
 ---
 
-## Terms "CP" & "AP"?  
+# Accuracy of "CP" & "AP"?  
+
+==
+
+## Accuracy of "CP" & "AP"?  
 
 - CAP applies **during** a network partition
 - Makes no restriction on normal/majority behaviour
 
 ==
 
-## The value of "CP" & "AP"?  
+## Accuracy of "CP" & "AP"?  
 
 - Counter-intuitive to many established system designs
   - "Best-effort consistency" - AP acts like CP
@@ -217,11 +243,19 @@ In both the CAP Theorem and CAP Conjecture, partition tolerance requires a syste
 
 ==
 
+## Accuracy of "CP" & "AP"?  
+
+- Are the invariants of CAP really invariant? 
+- Spanner: Clock-skew variance
+- FaRM: RDMA
+
+---
+
 ## Observation
 
 Many fault-tolerant highly-available systems do not guarantee 100% availability with failures (i.e., not "AP"), while also only providing a weak consistency model. 
 
-#### What would motivate a "CP" system to avoid providing strong consistency guarantees? 
+### What would motivate a "CP" system to avoid providing strong consistency guarantees? 
 
 ---
 
@@ -276,5 +310,20 @@ Many reasons beyond 100% availability that a system may want to sacrifice consis
 
 ---
 
-# Finish
+![](https://dl.dropboxusercontent.com/u/11161963/captalk/DisorderOfOperations.004.jpeg)
 
+---
+
+# Programmable Consistency 
+
+==
+
+![](https://dl.dropboxusercontent.com/u/11161963/captalk/DisorderOfOperations.001.jpeg)
+
+==
+
+![](https://dl.dropboxusercontent.com/u/11161963/captalk/DisorderOfOperations.002.jpeg)
+
+==
+
+![](https://dl.dropboxusercontent.com/u/11161963/captalk/DisorderOfOperations.003.jpeg)
