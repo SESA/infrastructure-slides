@@ -1,8 +1,8 @@
 # Configuration
-title:                SESA Talks 
-tagline:              'slides powered by reveal.js'
-url:                  https://sesa.github.io/slides 
-baseurl:              'http://sesa.github.io/slides'
+title:                Slides 
+tagline:              'powered by reveal.js'
+url:                  https://kylehogan.github.io/slides 
+baseurl:              'http://kylehogan.github.io/slides'
 safe:                 true 
 timezone:             America/New_York
 encoding:             utf-8
