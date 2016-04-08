@@ -1,6 +1,8 @@
 ---
 title: Syntax Example
-reveal_theme: solarized
+reveal_theme: moon 
+reveal_transition: slide 
+reveal_slideNumber: true
 ---
 
 ## Example Slides

@@ -26,6 +26,87 @@
     <script src="{{ site.baseurl }}/public/js/head.min.js"></script>
     <script src="{{ site.baseurl }}/public/js/md.min.js"></script>
     <script src="{{ site.baseurl }}/public/js/reveal.js"></script>
-    <script src="{{ site.baseurl }}/public/js/shame.js"></script>
+<script>
+$(function(){
+  var el = $('script[type="text/template"]');
+  var html = el.html();
+  var mdstr = md(html);
+  el.html(mdstr);
+
+  Reveal.initialize({
+    // Display controls in the bottom right corner
+    controls: {{ page.reveal_controls | default: true }},
+    // Display a presentation progress bar
+    progress: {{ page.reveal_progress | default: true }},
+    // Display the page number of the current slide
+    slideNumber: {{ page.reveal_slideNumber | default: false }},
+    // Push each slide change to the browser history
+    history: {{ page.reveal_history | default: false }},
+    // Enable keyboard shortcuts for navigation
+    keyboard: {{ page.reveal_keyboard | default: true }},
+    // Enable the slide overview mode
+    overview: {{ page.reveal_overview | default: true }},
+    // Vertical centering of slides
+    center: {{ page.reveal_center | default: true }}, 
+    // Enables touch navigation on devices with touch input
+    touch: {{ page.reveal_touch | default: true }},
+    // Loop the presentation
+    loop: {{ page.reveal_loop | default: false }},
+    // Change the presentation direction to be RTL
+    rtl: {{ page.reveal_rtl | default: false }},
+    // Turns fragments on and off globally
+    fragments: {{ page.reveal_fragments | default: true }},
+    // Flags if the presentation is running in an embedded mode,
+    // i.e. contained within a limited portion of the screen
+    embedded: {{ page.reveal_embedded | default: false }},
+    // Flags if we should show a help overlay when the questionmark
+    // key is pressed
+    help: {{ page.reveal_help | default: true }},
+    // Flags if speaker notes should be visible to all viewers
+    showNotes: {{ page.reveal_showNotes | default: true }},
+    // Number of milliseconds between automatically proceeding to the
+    // next slide, disabled when set to 0, this value can be overwritten
+    // by using a data-autoslide attribute on your slides
+    autoSlide: {{ page.reveal_autoSlide | default: false }},
+    // Stop auto-sliding after user input
+    autoSlideStoppable: {{ page.reveal_autoSlideStoppable | default: true }},
+    // Enable slide navigation via mouse wheel
+    mouseWheel: {{ page.reveal_mouseWheel | default: true }},
+    // Hides the address bar on mobile devices
+    hideAddressBar: {{ page.reveal_hideAddressBar | default: true }},
+    // Opens links in an iframe preview overlay
+    previewLinks: {{ page.reveal_previewLinks | default: false }},
+    // Number of slides away from the current that are visible
+    viewDistance: {{ page.reveal_viewDistance | default: 3 }},
+    // Transition style
+    // none/fade/slide/convex/concave/zoom
+    transition: "{{ page.reveal_transition | default: 'none' }}",
+    // Transition speed
+    // default/fast/slow
+    transitionSpeed: "{{ page.reveal_transitionSpeed | default: 'default' }}",
+    // Transition style for full page slide backgrounds
+    // none/fade/slide/convex/concave/zoom
+    backgroundTransition: "{{ page.reveal_backgroundTransition | default: '' }}",
+    // Parallax background image
+    // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+    parallaxBackgroundImage: "{{ page.reveal_parallaxBackgroundImage | default: '' }}",
+    // Parallax background size
+    // CSS syntax, e.g. "2100px 900px"
+    parallaxBackgroundSize: "{{ page.reveal_parallaxBackgroundSize | default: '' }}",
+    // Number of pixels to move the parallax background per slide
+    // - Calculated automatically unless specified
+    // - Set to 0 to disable movement along an axis
+    parallaxBackgroundHorizontal: {{ page.reveal_parallaxBackgroundHorizontal | default: 'null' }},
+    parallaxBackgroundVertical: {{ page.reveal_parallaxBackgroundVertical | default: 'null' }},
+
+        dependencies: [
+      { src: '{{ site.baseurl }}/public/js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '{{ site.baseurl }}/public/js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '{{ site.baseurl }}/public/js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '{{ site.baseurl }}/public/js/plugin/notes/notes.js', async: true }
+    ]
+  });
+});
+</script>
   </body>
 </html>
