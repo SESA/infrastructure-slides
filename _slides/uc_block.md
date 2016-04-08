@@ -2,7 +2,13 @@
 title: UC Block Storage
 ---
 
-## Universal Composability
+# Universally Composable Block Storage
+
+### Kyle Hogan, Mayank Varia, Ran Canetti
+
+---
+
+## Introduction to Universal Composability
 
 * Point 1
 * Point 2
@@ -11,14 +17,63 @@ title: UC Block Storage
 
 Note: this is a hidden speaker note
 
+==
+
+## Intro UC pt 2
+
 ---
 
-## Third Slide
+## Introduction to Block Storage
 
 ==
 
-## Vertical Slide 1
+## Security for Block Storage
 
 ==
 
-## Vertical Slide 2
+It isn't running by itself...
+
+---
+
+## Security Analysis of a Cloud
+
+==
+
+# Clouds are Big
+
+==
+
+Note: show openstack 
+
+==
+
+* Many components - block storage is just one
+* Modular Analysis - analyzing it as a whole is too much
+
+==
+
+## Implementation
+
+### A single component could have many different implemetations
+
+==
+
+## Implementation: iSCSI vs Ceph
+
+---
+
+## Applying UC - why
+
+==
+
+## Block Storage - general
+
+==
+
+## Show different implemetations match general
+
+---
+
+## Conclusion
+
+### Process for each component
