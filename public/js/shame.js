@@ -19,10 +19,10 @@ $(function(){
       { src: '{{ site.baseurl }}/public/js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 
       // Syntax highlight for <code> elements
-      { src: '{{ site.baseurl }}/public/js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      { src: '{{ site.baseurl }}/public/js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 
       // Speaker notes
-      { src: '{{ site.baseurl }}/public/js/plugin/notes/notes.js', async: true },
+      { src: '{{ site.baseurl }}/public/js/plugin/notes/notes.js', async: true }
     ]
   });
 });
