@@ -3,13 +3,19 @@
 
   <head>
     {% include head.html %}
-    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/slides.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/reveal.css">
+    {% if page.reveal_theme == null %}
+      <link rel="stylesheet" href="{{ site.baseurl }}/public/css/theme/black.css">
+    {% else %}
+      <link rel="stylesheet" href="{{ site.baseurl }}/public/css/theme/{{ page.reveal_theme }}.css">
+    {% endif %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/lib/css/zenburn.css">
   </head>
 
   <body>
 
     <div class="wrap reveal"><div class="slides">
-    <section data-markdown data-separator="^\n---\n" data-vertical="^\n==\n" data-notes="^Note:" data-charset="iso-8859-15">
+    <section data-markdown data-separator="^\n---\n" data-separator-vertical="^\n==\n" data-separator-notes="^Note:" data-charset="iso-8859-15">
         <script type="text/template">
           {{ content }}
         </script>
@@ -17,9 +23,9 @@
     </div></div>
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="{{ site.baseurl }}/public/js/md.min.js"></script>
     <script src="{{ site.baseurl }}/public/js/head.min.js"></script>
-    <script src="{{ site.baseurl }}/public/js/reveal.min.js"></script>
+    <script src="{{ site.baseurl }}/public/js/md.min.js"></script>
+    <script src="{{ site.baseurl }}/public/js/reveal.js"></script>
     <script src="{{ site.baseurl }}/public/js/shame.js"></script>
   </body>
 </html>

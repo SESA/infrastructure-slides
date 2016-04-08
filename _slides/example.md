@@ -1,5 +1,6 @@
 ---
 title: Syntax Example
+reveal_theme: solarized
 ---
 
 ## Example Slides
