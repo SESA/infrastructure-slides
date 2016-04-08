@@ -20,6 +20,9 @@ $(function(){
 
       // Syntax highlight for <code> elements
       { src: '{{ site.baseurl }}/public/js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+
+      // Speaker notes
+      { src: '{{ site.baseurl }}/public/js/plugin/notes/notes.js', async: true },
     ]
   });
 });
